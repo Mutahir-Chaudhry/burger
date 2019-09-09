@@ -1,10 +1,19 @@
 // Import MySQL connection.
 var connection = require("./connection.js");
 
+// Make connection.
+connection.connect(function (err) {
+  if (err) {
+    console.error("error connecting: " + err.stack);
+    return;
+  }
+  console.log("connected as id " + connection.threadId);
+});
+
 // Object for all our SQL statement functions.
 var orm = {
-    all: function(tableInput, cb) {
-      var queryString = "SELECT * FROM " + tableInput + ";";
+    all: function(cb) {
+      var queryString = "SELECT * FROM;";
       connection.query(queryString, function(err, result) {
         if (err) {
           throw err;
