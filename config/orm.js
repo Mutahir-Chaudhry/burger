@@ -13,7 +13,7 @@ connection.connect(function (err) {
 // Object for all our SQL statement functions.
 var orm = {
     all: function(cb) {
-      var queryString = "SELECT * FROM;";
+      var queryString = "SELECT * FROM burgers;";
       connection.query(queryString, function(err, result) {
         if (err) {
           throw err;
