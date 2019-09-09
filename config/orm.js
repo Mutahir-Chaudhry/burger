@@ -22,10 +22,7 @@ var orm = {
       });
     },
     create: function(burger_name, cb) {
-      var queryString = "INSERT INTO burgers SET ?"
-  
-      console.log(queryString);
-  
+      var queryString = "INSERT INTO burgers SET ?;";
       connection.query(queryString, {
         burger_name: burger_name,
         devoured: false,
@@ -36,16 +33,12 @@ var orm = {
         cb(result);
       });
     },
-    // An example of objColVals would be {name: panther, sleepy: true}
     update: function(burgerID, cb) {
-      var queryString = "UPDATE burger SET ? WHERE ?;"
-  
-      console.log(queryString);
+      var queryString = "UPDATE burgers SET ? WHERE ?;";
       connection.query(queryString,[{devoured:true}, {id:burgerID}], function(err, result) {
         if (err) {
           throw err;
         }
-  
         cb(result);
       });
     }

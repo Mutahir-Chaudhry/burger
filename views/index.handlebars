@@ -1,7 +1,7 @@
 <div class="row">
   <center>
 
-//Burgers already created ordered and ready to be devoured
+{{!-- Burgers already created ordered and ready to be devoured --}}
     <div class="col-md-6">
       <h3>Burger ready to be devoured!</h3>
       <div id="ready_to_eat">
@@ -17,11 +17,11 @@
         </form> {{/unless}} {{/each}} </div>
     </div>
 
-//Burgers already devoured
+{{!-- Burgers already devoured --}}
   <div class="col-md-6">
       <h3>Already devoured burgers!</h3>
       <div id="already_eaten">
-        {{#each}}
+        {{#each burgers}}
         {{#if this.devoured}}
         <div class="input-group">
           <li class="form-control">{{this.id}}.{{this.burger_name}}</li>
