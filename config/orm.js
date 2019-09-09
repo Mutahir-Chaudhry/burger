@@ -21,23 +21,18 @@ var orm = {
         cb(result);
       });
     },
-    create: function(table, cols, vals, cb) {
-      var queryString = "INSERT INTO " + table;
-  
-      queryString += " (";
-      queryString += cols.toString();
-      queryString += ") ";
-      queryString += "VALUES (";
-      queryString += printQuestionMarks(vals.length);
-      queryString += ") ";
+    create: function(burger_name, cb) {
+      var queryString = "INSERT INTO burgers SET ?"
   
       console.log(queryString);
   
-      connection.query(queryString, vals, function(err, result) {
+      connection.query(queryString, {
+        burger_name: burger_name,
+        devoured: false,
+      }, function(err, result) {
         if (err) {
           throw err;
         }
-  
         cb(result);
       });
     },
